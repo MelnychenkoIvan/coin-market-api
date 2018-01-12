@@ -1,0 +1,25 @@
+{
+  "name": "coin-market-api",
+  "version": "0.0.1",
+  "scripts": {
+    "nodemon": "nodemon --watch server server-start.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "sequelize": "^4.31.0",
+    "sequelize-cli": "^3.2.0",
+    "sqlite3": "^3.1.13"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.14.11"
+  }
+}
