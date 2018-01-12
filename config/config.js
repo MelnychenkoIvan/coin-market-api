@@ -5,7 +5,7 @@ const config = {
   port: process.env.SERVER_PORT,
   db  : {
     dialect: 'sqlite',
-    storage: path.join(__dirname, 'db.coin.dev.sqlite')
+    storage: './db.coin.dev.sqlite'
   }
 };
 

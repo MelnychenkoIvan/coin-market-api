@@ -2,7 +2,7 @@
   "name": "coin-market-api",
   "version": "0.0.1",
   "scripts": {
-    "nodemon": "nodemon --watch server server-start.js"
+    "nodemon": "nodemon server-start.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
