@@ -1,4 +1,4 @@
-function createUser(sequelize, DataTypes) {
+function create(sequelize, DataTypes) {
   const User = sequelize.define('User', {
     username: DataTypes.STRING
   });
@@ -6,4 +6,4 @@ function createUser(sequelize, DataTypes) {
   return User;
 }
 
-export default createUser;
+export default create;
