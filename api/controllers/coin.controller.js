@@ -57,7 +57,7 @@ function update(req, res, next) {
   coin.update(_.pick(req.body, [
     'name', 'symbol', 'rank', 'price_usd', 'price_btc', '24h_volume_usd',
     'market_cap_usd', 'available_supply', 'total_supply', 'max_supply',
-    'percent_change_1h', 'percent_change_24h', 'percent_change_7d', 'last_update'
+    'percent_change_1h', 'percent_change_24h', 'percent_change_7d'
   ]))
     .then(updatedCoin => res.json(updatedCoin))
     .catch(e => next(e));

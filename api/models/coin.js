@@ -43,9 +43,6 @@ function create(sequelize, DataType) {
     },
     percent_change_7d : {
       type: DataType.INTEGER
-    },
-    last_update       : {
-      type: DataType.INTEGER
     }
   });
 
