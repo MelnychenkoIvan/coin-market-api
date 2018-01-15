@@ -5,7 +5,10 @@ const router = express.Router();
 
 router.route('/')
   /** POST /api/users - Create new user */
-  .post(userCtrl.create);
+  .post(userCtrl.create)
+
+  /** Get /api/users - Get all user */
+  .get(userCtrl.list);
 
 
 router.route('/:userId')

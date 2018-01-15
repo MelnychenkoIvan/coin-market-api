@@ -1,3 +1,4 @@
+import _      from 'lodash';
 import models from '../models';
 
 /**
@@ -26,9 +27,7 @@ function get(req, res) {
  * @return {User}
  */
 function create(req, res, next) {
-  const user = new models.User({
-    username: req.body.username
-  });
+  const user = new models.User(_.pick(req.body, ['username']));
 
   user.save()
     .then(savedUser => res.json(savedUser))
@@ -43,11 +42,19 @@ function create(req, res, next) {
 function update(req, res, next) {
   const user = req.user;
 
-  user.username = req.body.username;
-
-  user.save()
-    .then(savedUser => res.json(savedUser))
+  user.update(_.pick(req.body, ['username']))
+    .then(updatedUser => res.json(updatedUser))
     .catch(e => next(e));
 }
 
-export default { get, load, create, update };
+/**
+ * Get user list
+ * @return {User[]}
+ */
+function list(req, res, next) {
+  models.User.findAll()
+    .then(users => res.json(users))
+    .catch(e => next(e));
+}
+
+export default { get, load, create, update, list };
