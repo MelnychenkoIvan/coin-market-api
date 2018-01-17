@@ -1,5 +1,6 @@
-import _      from 'lodash';
-import models from '../models';
+import _                   from 'lodash';
+import models              from '../models';
+import { notFoundChecker } from '../../helpers/models-not-fund';
 
 /**
  * Load coin
@@ -7,6 +8,7 @@ import models from '../models';
 function load(req, res, next, id) {
   models.Coin.findById(id)
     .then(coin => {
+      notFoundChecker(coin);
       req.coin = coin;
       return next();
     })
@@ -42,7 +44,9 @@ function create(req, res, next) {
  * @return {Coin[]}
  */
 function list(req, res, next) {
-  models.Coin.findAll()
+  models.Coin.findAll({
+    include: [models.CoinHistory]
+  })
     .then(coins => res.json(coins))
     .catch(e => next(e));
 }

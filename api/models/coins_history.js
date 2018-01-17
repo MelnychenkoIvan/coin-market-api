@@ -5,8 +5,11 @@ function create(sequelize, DataType) {
       primaryKey   : true,
       autoIncrement: true
     },
-    coin_id           : {
-      type: DataType.INTEGER
+    name              : {
+      type: DataType.STRING
+    },
+    symbol            : {
+      type: DataType.STRING
     },
     rank              : {
       type: DataType.INTEGER
@@ -42,6 +45,15 @@ function create(sequelize, DataType) {
       type: DataType.INTEGER
     }
   });
+
+  CoinHistory.associate = function (models) {
+    CoinHistory.belongsTo(models.Coin, {
+      foreignKey: {
+        name: 'coin_id'
+      },
+      allowNull : false
+    });
+  };
 
   return CoinHistory;
 }

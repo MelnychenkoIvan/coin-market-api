@@ -6,7 +6,8 @@ function create(sequelize, DataType) {
       autoIncrement: true
     },
     name              : {
-      type: DataType.STRING
+      type  : DataType.STRING,
+      unique: true
     },
     symbol            : {
       type: DataType.STRING
@@ -45,6 +46,10 @@ function create(sequelize, DataType) {
       type: DataType.INTEGER
     }
   });
+
+  Coin.associate = function (models) {
+    Coin.hasMany(models.CoinHistory);
+  };
 
   return Coin;
 }

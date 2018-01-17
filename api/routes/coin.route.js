@@ -4,7 +4,10 @@ import coinCtrl from '../controllers/coin.controller';
 const router = express.Router();
 
 router.route('/')
+  /** Post /api/coins - Create coin */
   .post(coinCtrl.create)
+
+  /** Get /api/coins - Get list of coins */
   .get(coinCtrl.list);
 
 router.route('/:coinId')
@@ -20,4 +23,4 @@ router.route('/:coinId')
 /** Load coin when API with coinId route parameter is hit */
 router.param('coinId', coinCtrl.load);
 
-export default router
+export default router;

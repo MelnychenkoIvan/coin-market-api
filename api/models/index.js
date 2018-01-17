@@ -26,6 +26,14 @@ fs
     db[model.name] = model;
   });
 
+// associate models
+Object.keys(db)
+  .forEach(function (modelName) {
+    if ('associate' in db[modelName]) {
+      db[modelName].associate(db);
+    }
+  });
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
