@@ -6,7 +6,9 @@ import { notFoundChecker } from '../../helpers/models-not-fund';
  * Load coin
  */
 function load(req, res, next, id) {
-  models.Coin.findById(id)
+  models.Coin.findById(id, {
+    include: [models.CoinHistory]
+  })
     .then(coin => {
       notFoundChecker(coin);
       req.coin = coin;
